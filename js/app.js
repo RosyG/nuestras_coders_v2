@@ -992,3 +992,6 @@ var data = {
     }
 };
 
+var seleccionarOpcion = function(event){
+    console.log(event.target);
+}
