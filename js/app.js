@@ -991,8 +991,12 @@ var data = {
   }
 };
 
-var seleccionarOpcion = function() {};
-var obtenerDatos = function() {};
+var seleccionarOpcion = function() {
+  //¿como detectamos el cambio de opcion?
+};
+var obtenerDatos = function() {
+  //¿como obtenemos los datos de esa generación?
+};
 var pintarCoders = function() {
-  //contenedor padre de las tarjetas de coders.
+  //como generamos con DOM
 };
