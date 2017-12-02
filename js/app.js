@@ -1,5 +1,6 @@
 var data = {
   CDMX: {
+    //data["CDMX"]["generaciones_estudiantes"]["quinta"]["estudiantes"][nombre/mail/turno/Generacion]
     generaciones_estudiantes: {
       quinta: {
         nombre: "Cool dev",
@@ -991,12 +992,59 @@ var data = {
   }
 };
 
-var seleccionarOpcion = function() {
+
+var select=document.getElementById("filtro");
+select.addEventListener("change", seleccionarOpcion);
+function seleccionarOpcion(event) {
   //¿como detectamos el cambio de opcion?
+  //data["CDMX"]["generaciones_estudiantes"]["quinta"]["estudiantes"]
+  var selectIndex= event.target.selectedIndex;//Me arroja el indice en 0,1,3,etc
+  //selectIndex es un comando de JS que me devuelve el indice del elemento que detoma el evento, lo guardo en una variable.
+  var option=event.target[selectIndex];//Se muestra el tag option que fue seleecionado, sirve para saber que cambio es el que se esta seleccionando.ME DEVUELVE UN ARRAY
+  //data["CDMX"]["generaciones_estudiantes"]["quinta/cuarta/tercera"]["estudiantes"][nombre/mail/turno/Generacion]
+  var sede=option.dataset.sede;//Accediendo al data-sede del tag option
+  var generation= option.dataset.generacion;//Accediendo a la data-generacion del tag option
+
+  var dawStudents= data[sede]["generaciones_estudiantes"][generation]["estudiantes"];//usando esta forma podemos diferenciar entre datos variables y fijos; las variables varian de acuerdo a los cambios que el user realiza cuando elige una opción
+//El console.log me va a mostrar el número de los contenidos que tiene la key estudiantes de CDMX, pero me muestra objetos porque cada elemento es un objeto.
+/*-------------------MUESTRA DE CADA IMAGEN CON SU RESPECTIVO TEXTO-----------------*/
+
+
+
+
 };
+
+
 var obtenerDatos = function() {
   //¿como obtenemos los datos de esa generación?
 };
+
+
 var pintarCoders = function() {
-  //como generamos con DOM
+    //la función recibe un objeto, por tanto mas adelante para acceder a sus values se accedera por medio de su key
+    //como generamos con DOM
+    var container=document.getElementById("contenedor-coders");
+
+    //Creamos elementos
+    var image= document.createElement("img");
+    var paragraph=document.createElement("p");
+    var twoParagraph=document.createElement("p");
+    var span= document.createElement("span");
+    var twoSpan= document.createElement("span");
+    var div=document.createElement("div");
+
+    paragraph.innerText="Nombre";
+    twoParagraph.innerText="Turno";
+    span.innerText="email";
+    twoSpan.innerText="Generacion";
+
+//Agregando atributo a nuestro elemento creado|
+    image.src="http://lorempixel.com/200/200/people/"/*Creando imagen aleatoria*/
+//Agregando los elementos al div y a su vez el div a el contenedor container
+    container=document.appendChild(image);
+
+
+
 };
+
+pintarCoders();//Ejecutando la función pintar coders
